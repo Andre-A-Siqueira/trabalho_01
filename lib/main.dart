@@ -18,18 +18,68 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
         title: 'Aplicativo de Cálculo',
         debugShowCheckedModeBanner: false, // Remove o icone de debug
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.deepPurple, //? Cor tema do aplicativo  */
         ),
         //home: const TelaConta() DEVE SER REMOVIDO PARA ROTAS, //Chama classe dinâmica criada
         initialRoute: '/', //Rota inicial "raiz"
         routes: {
-          '/': (context) => const TelaConta(),
+          '/': (context) => TelaConta(),
           '/tela2': (context) => Tela2(),
+          '/login': (context) => Login(), //! ROTA da Login  */
+          '/principal': (context) => Principal(), //! ROTA da Principal  */
+          '/cotacao': (context) => Cotacao(), //! ROTA da Cotacao  */
+          '/transferencia': (context) =>
+              Transferencia(), //! ROTA da Transferencia  */
         });
   }
 }
 
+class Principal extends StatefulWidget {
+  //Classe dinâmica
+  const Principal(
+      {super.key}); // método construtor (Cria o Objeto e usa extende os métodos da super classe)
+
+  @override
+  State<StatefulWidget> createState() {
+    return _CalcContaEstado(); //Chama a classe de cálculo //? deixei o chamamento da tela principal da calculadora por enquanto */
+  }
+}
+
+class Login extends StatefulWidget {
+  //Classe dinâmica
+  const Login(
+      {super.key}); // método construtor (Cria o Objeto e usa extende os métodos da super classe)
+
+  @override
+  State<StatefulWidget> createState() {
+    return _CalcContaEstado(); //Chama a classe de cálculo //? deixei o chamamento da tela principal da calculadora por enquanto */
+  }
+}
+
+class Cotacao extends StatefulWidget {
+  //Classe dinâmica
+  const Cotacao(
+      {super.key}); // método construtor (Cria o Objeto e usa extende os métodos da super classe)
+
+  @override
+  State<StatefulWidget> createState() {
+    return _CalcContaEstado(); //Chama a classe de cálculo //? deixei o chamamento da tela principal da calculadora por enquanto */
+  }
+}
+
+class Transferencia extends StatefulWidget {
+  //Classe dinâmica
+  const Transferencia(
+      {super.key}); // método construtor (Cria o Objeto e usa extende os métodos da super classe)
+
+  @override
+  State<StatefulWidget> createState() {
+    return _CalcContaEstado(); //Chama a classe de cálculo //? deixei o chamamento da tela principal da calculadora por enquanto */
+  }
+}
+
 class TelaConta extends StatefulWidget {
+  //? Projeto original Cria a Classe TelaConta()  */
   //Classe dinâmica
   const TelaConta(
       {super.key}); // método construtor (Cria o Objeto e usa extende os métodos da super classe)
@@ -39,6 +89,13 @@ class TelaConta extends StatefulWidget {
     return _CalcContaEstado(); //Chama a classe de cálculo
   }
 }
+
+//TODO Atributos privados = Principal */
+//TODO Atributos privados = Login */
+//TODO Atributos privados = Cotacao */
+//TODO Atributos privados = Transferencia */
+
+//TODO Modelo de Atributos privados  */
 
 class _CalcContaEstado extends State<TelaConta> {
   // atributos  privados
@@ -60,7 +117,8 @@ class _CalcContaEstado extends State<TelaConta> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Conta')),
+        appBar: AppBar(
+            title: const Text('Developers Bank')), //? Nome do app bank */
         body: Form(
           //Formulário
           key:
@@ -98,7 +156,10 @@ class _CalcContaEstado extends State<TelaConta> {
                         //Validação do que foi digitado se validado chama o método
                         _calcTotal();
                       }
-                      Navigator.of(context).pushNamed('/tela2');
+                      //! "pushNamed" cria o botão de voltar  */
+                      //! "pushReplacementNamed" substitui a página  */
+                      Navigator.of(context)
+                          .pushNamed('/tela2'); //! Chama a tela 2  */
                     },
                     child: const Text('Calcular com 10%'),
                   ),
@@ -119,11 +180,21 @@ class _CalcContaEstado extends State<TelaConta> {
                     child: Text(
                       'Valor total R\$ $_valorTotal',
                       style: const TextStyle(fontSize: 20),
-                    ))
+                    )),
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/principal');
+                    },
+                    child: const Text("Tela Principal"),
+                  ),
+                )
               ]),
         )); // fechamento de parentesis e colchete
   }
 }
+
 //Criação da Tela 2
 class Tela2 extends StatelessWidget {
   @override
@@ -134,4 +205,12 @@ class Tela2 extends StatelessWidget {
   }
 }
 
-
+/* /* '/principal': (context) => Principal(),  */
+class Principal extends StatefulWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text("Tela 2 !!!")),
+        body: Text("Funcionou a tela 2"));
+  }
+} */
