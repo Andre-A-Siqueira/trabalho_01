@@ -71,13 +71,14 @@ class _CalcContaEstado extends State<TelaConta> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Developers Bank')), //? Nome do app bank */
+            title: const Text('Developers Bank')),                               //? Nome do app bank */
         body: Form(
           //Formulário
           key:
               _formCalc, // chave usada para identificação GlobalKey<FormState>()
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(                                                       //? Troquei "Column" por "ListView"  para usar o "ScrownPage"*/
+              scrollDirection: Axis.vertical,                                    //? Posso trocar para horizontal */
+              //crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(10),
