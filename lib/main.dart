@@ -23,39 +23,19 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
         //home: const TelaConta() DEVE SER REMOVIDO PARA ROTAS, //Chama classe dinâmica criada
         initialRoute: '/', //Rota inicial "raiz"
         routes: {
-          '/': (context) => TelaConta(),
-          '/tela2': (context) => Tela2(),
-          '/login': (context) => Login(), //! ROTA da Login  */
-          '/principal': (context) => Principal(), //! ROTA da Principal  */
-          '/cotacao': (context) => Cotacao(), //! ROTA da Cotacao  */
-          '/transferencia': (context) =>
-              Transferencia(), //! ROTA da Transferencia  */
+          '/': (context) => const TelaConta(),
+          '/tela2': (context) => const Tela2(),
+          '/principal': (context) =>  const Principal(), 
+          '/login': (context) => const Login(), 
+          '/cotacao': (context) => const Cotacao(), 
+          '/transferencia': (context) => const Transferencia(), 
         });
   }
 }
 
 
-class Cotacao extends StatefulWidget {
-  //Classe dinâmica
-  const Cotacao(
-      {super.key}); // método construtor (Cria o Objeto e usa extende os métodos da super classe)
 
-  @override
-  State<StatefulWidget> createState() {
-    return _CalcContaEstado(); //Chama a classe de cálculo //? deixei o chamamento da tela principal da calculadora por enquanto */
-  }
-}
 
-class Transferencia extends StatefulWidget {
-  //Classe dinâmica
-  const Transferencia(
-      {super.key}); // método construtor (Cria o Objeto e usa extende os métodos da super classe)
-
-  @override
-  State<StatefulWidget> createState() {
-    return _CalcContaEstado(); //Chama a classe de cálculo //? deixei o chamamento da tela principal da calculadora por enquanto */
-  }
-}
 
 class TelaConta extends StatefulWidget {
   //? Projeto original Cria a Classe TelaConta()  */
@@ -69,12 +49,6 @@ class TelaConta extends StatefulWidget {
   }
 }
 
-//TODO Atributos privados = Principal */
-//TODO Atributos privados = Login */
-//TODO Atributos privados = Cotacao */
-//TODO Atributos privados = Transferencia */
-
-//TODO Modelo de Atributos privados  */
 
 class _CalcContaEstado extends State<TelaConta> {
   // atributos  privados
@@ -169,7 +143,6 @@ class _CalcContaEstado extends State<TelaConta> {
                     child: const Text("Tela Principal Banco"),
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
@@ -178,8 +151,27 @@ class _CalcContaEstado extends State<TelaConta> {
                     },
                     child: const Text("Tela Login"),
                   ),
-                )
+                ),
 
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/cotacao');
+                    },
+                    child: const Text("Tela de CotaÇão"),
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/transferencia');
+                    },
+                    child: const Text("Tela de transferencia"),
+                  ),
+                ),
 
               ]),
         )); // fechamento de parentesis e colchete
@@ -188,30 +180,64 @@ class _CalcContaEstado extends State<TelaConta> {
 
 //Criação da Tela 2
 class Tela2 extends StatelessWidget {
+  const Tela2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Tela 2 !!!")),
-        body: Text("Funcionou a tela 2"));
+        appBar: AppBar(title: const Text("Tela 2 !!!")),
+        body: const Text("Funcionou a tela 2"));
   }
 }
 
-/* '/principal': (context) => Principal(),  */
+
 class Principal extends StatelessWidget {
+  const Principal({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Principal!!!")),
-        body: Text("Veja a cotaÇão"));
+        appBar: AppBar(title: const Text("Principal!!!")),
+        body: const Text("Veja a cotaÇão"));
   }
 }
 
-/* '/login': (context) => Login(), ! ROTA da Login  */
+
 class Login extends StatelessWidget {
+  const Login({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Login!!!")),
-        body: Text("Tela de Login"));
+        appBar: AppBar(
+          title: const Text("Principal!!!")),
+        body: const Text("Veja a cotaÇão"));
+  }
+}
+
+
+/* '/cotacao': (context) => const Cotacao(), */
+class Cotacao extends StatelessWidget {
+  const Cotacao({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Cotacao!!!")),
+        body: const Text("Veja a cotaÇão"));
+  }
+}
+
+
+class Transferencia extends StatelessWidget {
+  const Transferencia({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Transferencia!!!")),
+        body: const Text("Veja a Transferencia"));
   }
 }
