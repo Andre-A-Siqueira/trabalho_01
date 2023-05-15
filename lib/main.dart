@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'loginPage.dart';
 import 'principalPage.dart';
 import 'cotacaoPage.dart';
-import 'transferencia.dart;';
+import 'transferencia.dart';
 
 void main() {
   runApp(const MeuPrimeiroAplicativo());
