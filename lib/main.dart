@@ -34,16 +34,6 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
   }
 }
 
-class Login extends StatefulWidget {
-  //Classe dinâmica
-  const Login(
-      {super.key}); // método construtor (Cria o Objeto e usa extende os métodos da super classe)
-
-  @override
-  State<StatefulWidget> createState() {
-    return _CalcContaEstado(); //Chama a classe de cálculo //? deixei o chamamento da tela principal da calculadora por enquanto */
-  }
-}
 
 class Cotacao extends StatefulWidget {
   //Classe dinâmica
@@ -176,9 +166,21 @@ class _CalcContaEstado extends State<TelaConta> {
                     onPressed: () {
                       Navigator.of(context).pushNamed('/principal');
                     },
-                    child: const Text("Tela Banco"),
+                    child: const Text("Tela Principal Banco"),
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/login');
+                    },
+                    child: const Text("Tela Login"),
                   ),
                 )
+
+
               ]),
         )); // fechamento de parentesis e colchete
   }
@@ -201,5 +203,15 @@ class Principal extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(title: Text("Principal!!!")),
         body: Text("Veja a cotaÇão"));
+  }
+}
+
+/* '/login': (context) => Login(), ! ROTA da Login  */
+class Login extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text("Login!!!")),
+        body: Text("Tela de Login"));
   }
 }
