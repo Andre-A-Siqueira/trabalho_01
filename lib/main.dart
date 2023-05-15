@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'loginPage.dart';
+import 'principalPage.dart';
+import 'cotacaoPage.dart';
+import 'transferencia.dart;';
 
 void main() {
   runApp(const MeuPrimeiroAplicativo());
@@ -25,17 +29,13 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
         routes: {
           '/': (context) => const TelaConta(),
           '/tela2': (context) => const Tela2(),
-          '/principal': (context) =>  const Principal(), 
-          '/login': (context) => const Login(), 
-          '/cotacao': (context) => const Cotacao(), 
-          '/transferencia': (context) => const Transferencia(), 
+          '/principal': (context) => const Principal(),
+          '/login': (context) => const Login(),
+          '/cotacao': (context) => const Cotacao(),
+          '/transferencia': (context) => const Transferencia(),
         });
   }
 }
-
-
-
-
 
 class TelaConta extends StatefulWidget {
   //? Projeto original Cria a Classe TelaConta()  */
@@ -48,7 +48,6 @@ class TelaConta extends StatefulWidget {
     return _CalcContaEstado(); //Chama a classe de cálculo
   }
 }
-
 
 class _CalcContaEstado extends State<TelaConta> {
   // atributos  privados
@@ -71,13 +70,15 @@ class _CalcContaEstado extends State<TelaConta> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Developers Bank')),                               //? Nome do app bank */
+            title: const Text('Developers Bank')), //? Nome do app bank */
         body: Form(
           //Formulário
           key:
               _formCalc, // chave usada para identificação GlobalKey<FormState>()
-          child: ListView(                                                       //? Troquei "Column" por "ListView"  para usar o "ScrownPage"*/
-              scrollDirection: Axis.vertical,                                    //? Posso trocar para horizontal */
+          child: ListView(
+              //? Troquei "Column" por "ListView"  para usar o "ScrownPage"*/
+              scrollDirection:
+                  Axis.vertical, //? Posso trocar para horizontal */
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
@@ -153,7 +154,6 @@ class _CalcContaEstado extends State<TelaConta> {
                     child: const Text("Tela Login"),
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
@@ -163,7 +163,6 @@ class _CalcContaEstado extends State<TelaConta> {
                     child: const Text("Tela de CotaÇão"),
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
@@ -173,7 +172,6 @@ class _CalcContaEstado extends State<TelaConta> {
                     child: const Text("Tela de transferencia"),
                   ),
                 ),
-
               ]),
         )); // fechamento de parentesis e colchete
   }
@@ -188,57 +186,5 @@ class Tela2 extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(title: const Text("Tela 2 !!!")),
         body: const Text("Funcionou a tela 2"));
-  }
-}
-
-
-class Principal extends StatelessWidget {
-  const Principal({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: const Text("Principal!!!")),
-        body: const Text("Veja a cotaÇão"));
-  }
-}
-
-
-class Login extends StatelessWidget {
-  const Login({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Principal!!!")),
-        body: const Text("Veja a cotaÇão"));
-  }
-}
-
-
-/* '/cotacao': (context) => const Cotacao(), */
-class Cotacao extends StatelessWidget {
-  const Cotacao({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Cotacao!!!")),
-        body: const Text("Veja a cotaÇão"));
-  }
-}
-
-
-class Transferencia extends StatelessWidget {
-  const Transferencia({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Transferencia!!!")),
-        body: const Text("Veja a Transferencia"));
   }
 }
