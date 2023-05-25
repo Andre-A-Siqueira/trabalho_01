@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 
 import 'login_page.dart';
 import 'principal_page.dart';
@@ -54,15 +54,8 @@ class _CalcContaEstado extends State<TelaConta> {
   // atributos  privados
   final _formCalc = GlobalKey<
       FormState>(); // atribuição única de chave para o formulário para atualizar o estado do widget
-  double _valor = 0.0;
-  dynamic _valorTotal;
+  
 
-  // método privado
-  void _calcTotal() {
-    setState(() {
-      _valorTotal = (_valor * 110 / 100).toStringAsFixed(2); // Calcula os 10%
-    });
-  }
 
   // método “build” sobrescrito
   // (é dentro do build que vamos criar
@@ -82,63 +75,7 @@ class _CalcContaEstado extends State<TelaConta> {
                   Axis.vertical, //? Posso trocar para horizontal */
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    decoration:
-                        const InputDecoration(hintText: 'Valor da conta'),
-                    textAlign: TextAlign.center, // Alinhamento centralizado
-                    validator: (value) {
-                      // Diferença entre TextField e TextFormField
-                      if (value!.isEmpty) {
-                        return 'Informe um valor';
-                      } else {
-                        _valor = double.parse(value);
-                        if (_valor <= 0) {
-                          return 'O valor deve ser maior que zero';
-                        }
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    //Botão
-                    onPressed: () {
-                      if (_formCalc.currentState!.validate()) {
-                        //Validação do que foi digitado se validado chama o método
-                        _calcTotal();
-                      }
-                      //! "pushNamed" cria o botão de voltar  */
-                      //! "pushReplacementNamed" substitui a página  */
-                      Navigator.of(context)
-                          .pushNamed('/tela2'); //! Chama a tela 2  */
-                    },
-                    child: const Text('Calcular com 10%'),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    //Botão
-                    onPressed: () {
-                      // Reset "Limpa" os dados da tela
-                      _formCalc.currentState!.reset();
-                    },
-                    child: const Text('Limpar'),
-                  ),
-                ),
-                Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      'Valor total R\$ $_valorTotal',
-                      textAlign: TextAlign.center, // Alinhamento centralizado
-                      style: const TextStyle(fontSize: 20),
-                    )),
+
                 //!O projeto se inicia apartir daqui.
                 Padding(
                   padding: const EdgeInsets.all(10),
