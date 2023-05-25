@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'loginPage.dart';
-import 'principalPage.dart';
-import 'cotacaoPage.dart';
+
+import 'login_page.dart';
+import 'principal_page.dart';
+import 'cotacao_page.dart';
 import 'transferencia.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
         title: 'Aplicativo de Cálculo',
         debugShowCheckedModeBanner: false, // Remove o icone de debug
         theme: ThemeData(
-          primarySwatch: Colors.deepPurple, //? Cor tema do aplicativo  */
+          primarySwatch: Colors.red, //? Cor tema do aplicativo  */
         ),
         //home: const TelaConta() DEVE SER REMOVIDO PARA ROTAS, //Chama classe dinâmica criada
         initialRoute: '/', //Rota inicial "raiz"
@@ -88,6 +89,7 @@ class _CalcContaEstado extends State<TelaConta> {
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     decoration:
                         const InputDecoration(hintText: 'Valor da conta'),
+                    textAlign: TextAlign.center, // Alinhamento centralizado
                     validator: (value) {
                       // Diferença entre TextField e TextFormField
                       if (value!.isEmpty) {
@@ -134,8 +136,10 @@ class _CalcContaEstado extends State<TelaConta> {
                     padding: const EdgeInsets.all(10),
                     child: Text(
                       'Valor total R\$ $_valorTotal',
+                      textAlign: TextAlign.center, // Alinhamento centralizado
                       style: const TextStyle(fontSize: 20),
                     )),
+                //!O projeto se inicia apartir daqui.
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
