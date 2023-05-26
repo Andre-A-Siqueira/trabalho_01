@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-
+/* import 'package:share_plus/share_plus.dart'; */
 
 import 'login_page.dart';
 import 'principal_page.dart';
 import 'cotacao_page.dart';
 import 'transferencia.dart';
 
-void main() {
+void main() async {
   runApp(const MeuPrimeiroAplicativo());
 }
 
@@ -23,6 +23,8 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
         title: 'Aplicativo de Cálculo',
         debugShowCheckedModeBanner: false, // Remove o icone de debug
         theme: ThemeData(
+          hintColor: Colors.green,
+          primaryColor: Colors.white,
           primarySwatch: Colors.red, //? Cor tema do aplicativo  */
         ),
         //home: const TelaConta() DEVE SER REMOVIDO PARA ROTAS, //Chama classe dinâmica criada
@@ -54,8 +56,6 @@ class _CalcContaEstado extends State<TelaConta> {
   // atributos  privados
   final _formCalc = GlobalKey<
       FormState>(); // atribuição única de chave para o formulário para atualizar o estado do widget
-  
-
 
   // método “build” sobrescrito
   // (é dentro do build que vamos criar
@@ -75,10 +75,8 @@ class _CalcContaEstado extends State<TelaConta> {
                   Axis.vertical, //? Posso trocar para horizontal */
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-
-                //!O projeto se inicia apartir daqui.
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/principal');
@@ -87,7 +85,7 @@ class _CalcContaEstado extends State<TelaConta> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/login');
@@ -96,7 +94,7 @@ class _CalcContaEstado extends State<TelaConta> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/cotacao');
@@ -105,7 +103,7 @@ class _CalcContaEstado extends State<TelaConta> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/transferencia');

@@ -12,7 +12,8 @@ class Login extends StatelessWidget {
           centerTitle: true,
         ),
         body: Center(
-            child: Column(children: <Widget>[
+            child: ListView(children: <Widget>[
+          //? Troquei "Column" por "ListView"  para usar o "ScrownPage"*/
           Padding(
             padding: const EdgeInsets.all(10),
             child: TextFormField(
