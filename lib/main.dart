@@ -69,10 +69,11 @@ class _CalcContaEstado extends State<TelaConta> {
           //Formulário
           key:
               _formCalc, // chave usada para identificação GlobalKey<FormState>()
+     //!  child: Column(
           child: ListView(
-              //? Troquei "Column" por "ListView"  para usar o "ScrownPage"*/
+              //? Troque "Column" por "ListView"  para usar o "ScrownPage"*/
               scrollDirection:
-                  Axis.vertical, //? Posso trocar para horizontal */
+                  Axis.vertical, //? Diz o sentido do Scroll para vertical */
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
