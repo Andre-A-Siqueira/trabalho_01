@@ -121,10 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     //A opção default do switch-case verifica se não teve erro
 
                     String? erro = snapshot.error.toString();
-                    return const Center(
+                    return Center(
                         child: Text(
                       "Ops, houve uma falha ao buscar os dados : $erro",
-                      style: TextStyle(color: Colors.green, fontSize: 25.0),
+                      style:
+                          const TextStyle(color: Colors.green, fontSize: 25.0),
                       textAlign: TextAlign.center,
                     ));
                     //! continua
