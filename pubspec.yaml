@@ -20,6 +20,7 @@ version: 1.0.0+1
 
 environment:
   sdk: '>=3.0.0-283.0.dev <4.0.0'
+  #sdk: ">=2.1.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,7 +31,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.4
+
 
 
 
@@ -40,11 +41,13 @@ dependencies:
   provider: ^5.0.0
   flutter_application_1: ^0.0.2
   share_plus: ^7.0.1
-  #http: ^0.13.4
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  #http: ^0.13.4
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

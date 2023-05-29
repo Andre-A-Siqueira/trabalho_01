@@ -6,7 +6,7 @@ import 'principal_page.dart';
 import 'cotacao_page.dart';
 import 'transferencia.dart';
 
-void main() async {
+void main(List<String> args) async {
   runApp(const MeuPrimeiroAplicativo());
 }
 

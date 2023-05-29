@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:async';
 import 'dart:convert';
+
+const url = "";
 
 class Cotacao extends StatelessWidget {
   const Cotacao({super.key});
@@ -8,19 +11,51 @@ class Cotacao extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Cotacao!!!")),
-        body: const Text("Veja a cotaÇão"));
+      appBar: AppBar(title: const Text("Cotacao!!!")),
+      body: //const Text("Veja a cotaÇão"),
+          FutureBuilder<Map<String, dynamic>>(
+        future: fetchData(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            double dolar =
+                snapshot.data!['results']['currencies']['USD']['buy'];
+            return Center(
+              child: Text(
+                'Valor do dólar: $dolar',
+                style: const TextStyle(fontSize: 24),
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return const Center(
+              child: Text(
+                'Ops, houve uma falha ao buscar os dados.',
+                style: TextStyle(fontSize: 24),
+              ),
+            );
+          } else {
+            return const CircularProgressIndicator();
+          }
+        },
+      ),
+
+      //!
+    );
   }
+
+  fetchData() {}
 }
 
 //? Passo 3:
 //? Método que vai acessar os dados via API.
+//? função para pegar os dados da API */
 Future<Map> getData() async {
-  var url =
-      Uri.parse('https://api.hgbrasil.com/finance?format=json&key=2abee24e');
+//Future<Map<String, dynamic>> fetchData() async {
+  //? faz uma requisição de forma assincrona */
+  var url = Uri.parse('https://api.hgbrasil.com/finance?key=2abee24e');
   http.Response response = await http.get(url);
-  // print('Response status: ${response.statusCode}');
-  // print('Response body: ${response.body}');
+  //var response = await http.get(url);     //teste03
+  //print('Response status: ${response.statusCode}');
+  //print('Response body: ${response.body}');
   return json.decode(response.body);
 }
 
@@ -40,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final realController = TextEditingController();
   final dolarController = TextEditingController();
   final euroController = TextEditingController();
+
   double dolar = 0.0;
   double euro = 0.0;
 
@@ -54,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //!VoidCallback? _realChanged(String text) {
   void _realChanged(String text) {
     double real = double.parse(text);
+
     dolarController.text = (real / dolar).toStringAsFixed(2);
     euroController.text = (real / euro).toStringAsFixed(2);
   }
@@ -80,6 +117,12 @@ class _MyHomePageState extends State<MyHomePage> {
     dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
   }
 
+  void clearAll() {
+    realController.text = "";
+    dolarController.text = "";
+    euroController.text = "";
+  }
+
 //? Passo 5.6:
 //?Método build. Já conhecido por nós.
 //*class _MyHomePageState extends State<Home> {
@@ -89,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          title: const Text("Conversor de moeda"),
+          title: const Text("Conversor de moedas"),
           backgroundColor: Colors.green,
           centerTitle: true,
         ), // AppBar
@@ -98,8 +141,10 @@ class _MyHomePageState extends State<MyHomePage> {
         //*class _MyHomePageState extends State<Home> {
         //* código anterior
         body: FutureBuilder<Map>(
+            //body: FutureBuilder<Map<String, dynamic>>(
             //A chamada para o método que interage com a API é feita dentro do widget  FutureBuilder
             future: getData(),
+            //future: fetchData(),
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 //Um switch-case é criado para gerenciar o que acontece em cada caso da conexão com a API
@@ -120,9 +165,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   if (snapshot.hasError) {
                     //A opção default do switch-case verifica se não teve erro
 
-                    String? erro = snapshot.error.toString();
+                    String? erro =
+                        snapshot.error.toString(); //! <<<<< ATENÇÂO...!!! >>>>>
                     return Center(
                         child: Text(
+                      //"API não disponível",
                       "Ops, houve uma falha ao buscar os dados : $erro",
                       style:
                           const TextStyle(color: Colors.green, fontSize: 25.0),
@@ -156,14 +203,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           const Icon(Icons.attach_money,
                               size: 180.0, color: Colors.green),
+
                           campoTexto(
                               "Reais", "R\$ ", realController, _realChanged),
                           //?“campoTexto” é um widget customizado. A sua construção é mostrada no próximo slide
                           const Divider(),
+
                           campoTexto(
                               "Euros", "€ ", euroController, _euroChanged),
                           //?“campoTexto” é um widget customizado. A sua construção é mostrada no próximo slide
                           const Divider(),
+
                           campoTexto("Dólares", "US\$ ", dolarController,
                               _dolarChanged),
                           //?“campoTexto” é um widget customizado. A sua construção é mostrada no próximo slide
@@ -178,17 +228,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
 //? Passo 5.11:
 //?O método campoTexto permite a reutilização de código
+//Widget buildTextField(String text , String prefix, TextEditingController c, Function converterValores) {
 Widget campoTexto(
     String label, String prefix, TextEditingController c, Function? f) {
+//Widget buildTextField(String text, String prefix, TextEditingController c, Function converterValores) {
   return TextField(
+    keyboardType: const TextInputType.numberWithOptions(decimal: true),
+    //onChanged: converterValores,      //teste03
+    onChanged: (value) => {f!(value)}, //! <<<<< ATENÇÂO...!!! >>>>>
     controller: c,
     decoration: InputDecoration(
         labelText: label,
         labelStyle: const TextStyle(color: Colors.green),
-        border: const OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
         prefixText: prefix),
     style: const TextStyle(color: Colors.green, fontSize: 25.0),
-    onChanged: (value) => {f!(value)},
-    keyboardType: const TextInputType.numberWithOptions(decimal: true),
   );
 }

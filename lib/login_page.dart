@@ -14,6 +14,21 @@ class Login extends StatelessWidget {
         body: Center(
             child: ListView(children: <Widget>[
           //? Troquei "Column" por "ListView"  para usar o "ScrownPage"*/
+
+          const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 24.;0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ])),
+
           Padding(
             padding: const EdgeInsets.all(10),
             child: TextFormField(
@@ -21,24 +36,6 @@ class Login extends StatelessWidget {
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 decoration:
                     const InputDecoration(hintText: 'Digite seu email.'),
-                validator: (value) {
-                  // Diferença entre TextField e TextFormField
-                  if (value!.isEmpty) {
-                    return 'Informe um valor';
-                  }
-                  return null;
-                }),
-          ),
-          //
-          //
-          //
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: TextFormField(
-                keyboardType: TextInputType.number,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                decoration:
-                    const InputDecoration(hintText: 'Digite a sua senha.'),
                 validator: (value) {
                   // Diferença entre TextField e TextFormField
                   if (value!.isEmpty) {
