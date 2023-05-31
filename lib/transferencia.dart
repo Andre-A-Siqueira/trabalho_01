@@ -68,7 +68,8 @@ class TransferPageState extends State<Transferencia> {
             ),
             const SizedBox(height: 32.0),
             ElevatedButton(
-              onPressed: () {  //! Quando Pressionado faÇa ... */
+              onPressed: () {
+                //! Quando Pressionado faÇa ... */
                 String accountNumber = accountController.text;
                 String amount = amountController.text;
 
@@ -84,11 +85,10 @@ class TransferPageState extends State<Transferencia> {
             if (_isTransferConfirmed)
               Column(
                 children: [
-
                   //! Box de confirma;ão de transferencia */
                   Container(
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB( 
+                      color: const Color.fromARGB(
                           255, 204, 111, 109), //? Cor da BOX
                       borderRadius: BorderRadius.circular(8.0),
                     ),
@@ -105,7 +105,7 @@ class TransferPageState extends State<Transferencia> {
                         ),
                         const SizedBox(height: 16.0),
                         Text(
-                          'Quantidade: R\$${amountController.text}',  //! Texto de transferencia */
+                          'Quantidade: R\$${amountController.text}', //! Texto de transferencia */
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18.0,
@@ -115,6 +115,7 @@ class TransferPageState extends State<Transferencia> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            //! Botão compartilhar */
                             ElevatedButton(
                               onPressed: () {
                                 //! Chamar o compartilhar.
