@@ -16,9 +16,10 @@ class Cotacao2 extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        //hintColor: Colors.green,
+        hintColor: Colors.red,
         //primaryColor: Colors.white,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 255, 37, 37)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Conversor de Moedas'),
@@ -29,11 +30,13 @@ class Cotacao2 extends StatelessWidget {
 //Método que vai acessar os dados via API
 // determina que uma função irá retornar algo no “futuro”, ou seja, é uma função que levará um tempo até ser finalizada
 Future<Map> getData() async {
-  var url =
-      Uri.parse('https://api.hgbrasil.com/finance?format=json&key=611517b7');
+  //var url =
+  //Uri.parse('https://api.hgbrasil.com/finance?format=json&key=611517b7');
+  var url = Uri.parse('https://api.hgbrasil.com/finance?key=2abee24e');
+  //! CHAVE DE ACESSO A API */
 
   //AWAIT - serve para determinar que o aplicativo deve esperar uma resposta de uma função antes de continuar a execução.
-  http.Response response = await http.get(url);
+  http.Response response = await http.get(url); //! ARMAZENA NA VARIAVEL*/
   //print('Response status: ${response.statusCode}');
   //print('Response body: ${response.body}');
   return json.decode(response.body);
@@ -49,9 +52,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final realController = TextEditingController();
-  final dolarController = TextEditingController();
-  final euroController = TextEditingController();
+  final realController =
+      TextEditingController(); //! ARMAZENA OS VALORES BUSCADO PELA API */
+  final dolarController =
+      TextEditingController(); //! ARMAZENA OS VALORES BUSCADO PELA API */
+  final euroController =
+      TextEditingController(); //! ARMAZENA OS VALORES BUSCADO PELA API */
   double dolar = 0.0;
   double euro = 0.0;
 

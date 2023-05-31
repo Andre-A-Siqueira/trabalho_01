@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/material.dart'; /*Os importes para acessar o  conteudo de outras paginas */
+import 'package:flutter/services.dart'; /*Os importes para acessar o  conteudo de outras paginas */
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -8,11 +8,11 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Tela de Login"),
-          centerTitle: true,
+          title: const Text("Tela de Login"), /* Nome da Tela */
+          centerTitle: true, /* centralizar titulo */
         ),
         body: Center(
-            child: ListView(children: <Widget>[
+            child: ListView(children: <Widget>[  //? "ListView" permite fazer o scrow na pagida descer na tela. */
           //? Troquei "Column" por "ListView"  para usar o "ScrownPage"*/
 
           const Padding(
@@ -32,16 +32,16 @@ class Login extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10),
             child: TextFormField(
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.number, //! Tipo de dados aceito aqui "NUMÉRO " */
                 inputFormatters: [
                   FilteringTextInputFormatter
-                      .singleLineFormatter /* TIpo de entrada Texto */
+                      .singleLineFormatter //! TIpo de entrada Texto */
                 ],
                 decoration:
-                    const InputDecoration(hintText: 'Digite seu email.'),
+                    const InputDecoration(hintText: 'Digite seu email.'), //! Campo para inserir email  */
                 validator: (value) {
                   // Diferença entre TextField e TextFormField
-                  if (value!.isEmpty) {
+                  if (value!.isEmpty) { //! Só ira amostrar a mensagem de erro se nada for inserido */
                     return 'Informe um valor';
                   }
                   return null;
@@ -54,13 +54,13 @@ class Login extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: TextFormField(
                 keyboardType: TextInputType.number,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],//! Tipo de dados aceito aqui "NUMÉRO " */
                 /* TIpo de entrada numero */
                 decoration:
-                    const InputDecoration(hintText: 'Digite a sua senha.'),
+                    const InputDecoration(hintText: 'Digite a sua senha.'),//! Campo para inserir senha  */
                 validator: (value) {
                   // Diferença entre TextField e TextFormField
-                  if (value!.isEmpty) {
+                  if (value!.isEmpty) { //! Só ira amostrar a mensagem de erro se nada for inserido */
                     return 'Informe um valor';
                   }
                   return null;
@@ -71,11 +71,11 @@ class Login extends StatelessWidget {
           //! "pushReplacementNamed" substitui a página  */
           Padding(
             padding: const EdgeInsets.all(10),
-            child: ElevatedButton(
+            child: ElevatedButton( //! BOTÃO DE LOGIN */
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed('/');
+                  Navigator.of(context).pushReplacementNamed('/'); //! AVANÇAR A PAGINA */
                 },
-                child: const Text('Logar.')),
+                child: const Text('Logar.')), //! TEXTO DO BOTÃO */
           )
         ])));
 

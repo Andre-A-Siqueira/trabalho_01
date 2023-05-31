@@ -51,8 +51,8 @@ class Cotacao extends StatelessWidget {
 Future<Map> getData() async {
 //Future<Map<String, dynamic>> fetchData() async {
   //? faz uma requisição de forma assincrona */
-  var url = Uri.parse('https://api.hgbrasil.com/finance?key=2abee24e');
-  http.Response response = await http.get(url);
+  var url = Uri.parse('https://api.hgbrasil.com/finance?key=2abee24e'); //! CHAVE DA API */
+  http.Response response = await http.get(url); //! ARMAZENA NA VARIAVEL*/
   //var response = await http.get(url);     //teste03
   //print('Response status: ${response.statusCode}');
   //print('Response body: ${response.body}');

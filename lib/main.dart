@@ -25,6 +25,7 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
         title: 'Aplicativo do Banco',
         debugShowCheckedModeBanner: false, // Remove o icone de debug
         theme: ThemeData(
+          //?Cores temas do aplicativo
           hintColor: const Color.fromARGB(255, 192, 143, 74),
           primaryColor: const Color.fromARGB(255, 255, 255, 255),
           primarySwatch: Colors.red, //? Cor tema do aplicativo  */
