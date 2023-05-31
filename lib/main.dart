@@ -33,6 +33,7 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
         //home: const TelaConta() DEVE SER REMOVIDO PARA ROTAS, //Chama classe dinâmica criada
         initialRoute: '/', //Rota inicial "raiz"
         routes: {
+          //! Acesso as rotas das telas */
           '/': (context) => const TelaConta(),
           '/tela2': (context) => const Tela2(),
           '/principal': (context) => const Principal(),
@@ -69,18 +70,19 @@ class _CalcContaEstado extends State<TelaConta> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text('Developers Bank')), //? Nome do app bank */
+            title: const Text('Developers Bank')), //! Nome do app bank */
         body: Form(
           //Formulário
           key:
               _formCalc, // chave usada para identificação GlobalKey<FormState>()
           //!  child: Column(
           child: ListView(
-              //? Troque "Column" por "ListView"  para usar o "ScrownPage"*/
+              //! Troque "Column" por "ListView"  para usar o "ScrownPage"*/
               scrollDirection:
                   Axis.vertical, //? Diz o sentido do Scroll para vertical */
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                //! Botão. */
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: ElevatedButton(
@@ -90,6 +92,8 @@ class _CalcContaEstado extends State<TelaConta> {
                     child: const Text("Tela Principal Banco"),
                   ),
                 ),
+
+                //! Botão. */
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: ElevatedButton(
@@ -99,6 +103,8 @@ class _CalcContaEstado extends State<TelaConta> {
                     child: const Text("Tela Login"),
                   ),
                 ),
+
+                //! Botão. */
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: ElevatedButton(
@@ -108,6 +114,8 @@ class _CalcContaEstado extends State<TelaConta> {
                     child: const Text("Tela de CotaÇão"),
                   ),
                 ),
+
+                //! Botão. */
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: ElevatedButton(

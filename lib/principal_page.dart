@@ -25,7 +25,7 @@ class Principal extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {
+              onPressed: () { //! Quando precionado execute o que estiver a seguir.. */
                 Navigator.pushNamed(
                     context, '/transfer'); //! Endere;o que deve acessar */
               },
@@ -61,7 +61,7 @@ class TransferPage extends StatelessWidget {
                 labelText: 'Quantidade',
               ),
             ),
-            const SizedBox(height: 32.0),
+            const SizedBox(height: 32.0), //! Tamanho da BOX */
             ElevatedButton(
               onPressed: () {
                 // Transfer logic here
