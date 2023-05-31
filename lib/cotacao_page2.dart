@@ -71,8 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return null;
   }
 
-//Calcula Dolar e Real sabendo o valor em euro
-  VoidCallback? _euroCha;nged(String text) {
+//Calcula Dolar e Real sabendo o valor em euro;
+  VoidCallback? _euroChanged(String text) {
     double euro = double.parse(text);
     realController.text = (euro * this.euro).toStringAsFixed(2);
     dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
