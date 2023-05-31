@@ -38,7 +38,7 @@ class TesteState extends State<Teste> {
             ElevatedButton(
               child: const Text('Fazer Login'),
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/login');
+                Navigator.pushReplacementNamed(context, '/login'); //! endere;o que deve acessar */
               },
             ),
           ],

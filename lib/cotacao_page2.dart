@@ -64,24 +64,30 @@ class _MyHomePageState extends State<MyHomePage> {
 //Calcula Dolar e Euro sabendo o valor em real
   VoidCallback? _realChanged(String text) {
     double real = double.parse(text);
-    dolarController.text = (real / dolar).toStringAsFixed(2);
-    euroController.text = (real / euro).toStringAsFixed(2);
+    dolarController.text =
+        (real / dolar).toStringAsFixed(2); //! faz o calculo de conversão */
+    euroController.text =
+        (real / euro).toStringAsFixed(2); //! faz o calculo de conversão */
     return null;
   }
 
 //Calcula Real e Euro sabendo o valor em dolar
   VoidCallback? _dolarChanged(String text) {
     double dolar = double.parse(text);
-    realController.text = (dolar * this.dolar).toStringAsFixed(2);
-    euroController.text = (dolar * this.dolar / euro).toStringAsFixed(2);
+    realController.text = (dolar * this.dolar)
+        .toStringAsFixed(2); //! faz o calculo de conversão */
+    euroController.text = (dolar * this.dolar / euro)
+        .toStringAsFixed(2); //! faz o calculo de conversão */
     return null;
   }
 
 //Calcula Dolar e Real sabendo o valor em euro; a
   VoidCallback? _euroChanged(String text) {
     double euro = double.parse(text);
-    realController.text = (euro * this.euro).toStringAsFixed(2);
-    dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
+    realController.text =
+        (euro * this.euro).toStringAsFixed(2); //! faz o calculo de conversão */
+    dolarController.text = (euro * this.euro / dolar)
+        .toStringAsFixed(2); //! faz o calculo de conversão */
     return null;
   }
 
@@ -94,16 +100,19 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         //
         body: FutureBuilder<Map>(
-            future: getData(),
+            future: getData(), //! faz o busca dos dados futuros */
             //snapshot - representa um instantâneo dos dados recebidos
             builder: (context, snapshot) {
+              //! bate uma "foto" naquele momento dos dados */
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
                 case ConnectionState.waiting:
                   return const Center(
                       child: Text(
-                    "Aguarde...",
-                    style: TextStyle(color: Colors.green, fontSize: 30.0),
+                    "Aguarde...", //! Caso não consiga fazer a consulta */
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 249, 31, 31),
+                        fontSize: 30.0),
                     textAlign: TextAlign.center,
                   ));
                 default:
@@ -112,13 +121,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     return Center(
                         child: Text(
                       "Ops, houve uma falha ao buscar os dados : $erro",
-                      style:
-                          const TextStyle(color: Colors.green, fontSize: 25.0),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 255, 4, 4),
+                          fontSize: 25.0),
                       textAlign: TextAlign.center,
                     ));
                   } else {
-                    dolar =
-                        snapshot.data!["results"]["currencies"]["USD"]["buy"];
+                    dolar = snapshot.data!["results"]["currencies"]["USD"]
+                        ["buy"]; //! armazena o tipo de moeda e valor dela */
                     euro =
                         snapshot.data!["results"]["currencies"]["EUR"]["buy"];
                     return SingleChildScrollView(
@@ -128,7 +138,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           //Icone de cifrão
                           const Icon(Icons.attach_money,
-                              size: 180.0, color: Colors.green),
+                              size: 180.0,
+                              color: Color.fromARGB(255, 255, 30, 30)),
                           campoTexto(
                               "Reais", "R\$ ", realController, _realChanged),
                           const Divider(),
@@ -152,10 +163,10 @@ class _MyHomePageState extends State<MyHomePage> {
       controller: c,
       decoration: InputDecoration(
           labelText: label,
-          labelStyle: const TextStyle(color: Colors.green),
+          labelStyle: const TextStyle(color: Color.fromARGB(255, 184, 15, 15)),
           border: const OutlineInputBorder(),
           prefixText: prefix),
-      style: const TextStyle(color: Colors.green, fontSize: 25.0),
+      style: const TextStyle(color: Color.fromARGB(255, 198, 25, 25), fontSize: 25.0),
       onChanged: (value) => {f!(value)},
       keyboardType: const TextInputType.numberWithOptions(decimal: true),
     );

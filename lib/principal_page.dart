@@ -26,9 +26,10 @@ class Principal extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/transfer');
+                Navigator.pushNamed(
+                    context, '/transfer'); //! Endere;o que deve acessar */
               },
-              child: const Text('Transfer'),
+              child: const Text('Transferencia'),
             ),
           ],
         ),
@@ -47,19 +48,17 @@ class TransferPage extends StatelessWidget {
         title: const Text('Transferencia'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0), //! ExpaÇãmento */
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center, //! Centraliza;ão */
           children: [
             const TextField(
-              decoration: InputDecoration(
-                labelText: 'Account Number',
-              ),
+              decoration: InputDecoration(labelText: 'Numero da conta'),
             ),
             const SizedBox(height: 16.0),
             const TextField(
               decoration: InputDecoration(
-                labelText: 'Amount',
+                labelText: 'Quantidade',
               ),
             ),
             const SizedBox(height: 32.0),
