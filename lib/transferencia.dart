@@ -21,6 +21,7 @@ import 'package:share_plus/share_plus.dart';
 
 class Transferencia extends StatefulWidget {
   const Transferencia({super.key});
+  
   @override
   TransferPageState createState() => TransferPageState();
 }
@@ -99,7 +100,7 @@ class TransferPageState extends State<Transferencia> {
                         ),
                         const SizedBox(height: 16.0),
                         Text(
-                          'Quantidade: \$${amountController.text}',
+                          'Quantidade: R\$${amountController.text}',
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18.0,

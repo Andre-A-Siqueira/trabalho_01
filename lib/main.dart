@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:trabalho_01/cotacao_page2.dart';
 /* import 'package:share_plus/share_plus.dart'; */
 
 import 'login_page.dart';
 import 'principal_page.dart';
 import 'cotacao_page.dart';
 import 'transferencia.dart';
+import 'tela_apresentacao.dart';
 
 void main(List<String> args) async {
   runApp(const MeuPrimeiroAplicativo());
@@ -20,7 +22,7 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         // Widget material design
-        title: 'Aplicativo de Cálculo',
+        title: 'Aplicativo do Banco',
         debugShowCheckedModeBanner: false, // Remove o icone de debug
         theme: ThemeData(
           hintColor: const Color.fromARGB(255, 192, 143, 74),
@@ -35,7 +37,9 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
           '/principal': (context) => const Principal(),
           '/login': (context) => const Login(),
           '/cotacao': (context) => const Cotacao(),
+          '/cotacao2': (context) => const Cotacao2(),
           '/transferencia': (context) => const Transferencia(),
+          '/teste': (context) => const Teste(),
         });
   }
 }
@@ -98,7 +102,7 @@ class _CalcContaEstado extends State<TelaConta> {
                   padding: const EdgeInsets.all(20),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/cotacao');
+                      Navigator.of(context).pushNamed('/cotacao2');
                     },
                     child: const Text("Tela de CotaÇão"),
                   ),
@@ -112,6 +116,15 @@ class _CalcContaEstado extends State<TelaConta> {
                     child: const Text("Tela de transferencia"),
                   ),
                 ),
+                /* Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/Teste');
+                    },
+                    child: const Text("Tela de Teste"),
+                  ),
+                ), */
               ]),
         )); // fechamento de parentesis e colchete
   }

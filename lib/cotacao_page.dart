@@ -91,22 +91,24 @@ class _MyHomePageState extends State<MyHomePage> {
   //? Passo 5.3:
   //?Método que calcula o valor de dólar e euro, dado o valor em real.
   VoidCallback? _realChanged(String text) {
-  //void _realChanged(String text) {
+    //void _realChanged(String text) {
     double real = double.parse(text);
 
     dolarController.text = (real / dolar).toStringAsFixed(2);
     euroController.text = (real / euro).toStringAsFixed(2);
+    return null; //! ACRESCENTADO PARA REMOVER ERROS */
   }
 
 //? Passo 5.4:
 //? Método que calcula o valor de real e euro, dado o valor em dólar
 
 // código anterior
-VoidCallback? _dolarChanged(String text) {
-  //void _dolarChanged(String text) {
+  VoidCallback? _dolarChanged(String text) {
+    //void _dolarChanged(String text) {
     double dolar = double.parse(text);
     realController.text = (dolar * this.dolar).toStringAsFixed(2);
     euroController.text = (dolar * this.dolar / euro).toStringAsFixed(2);
+    return null; //! ACRESCENTADO PARA REMOVER ERROS */
   }
 
   //? Passo 5.5:
@@ -114,10 +116,11 @@ VoidCallback? _dolarChanged(String text) {
   //*class _MyHomePageState extends State<Home> {
   //* código anterior
   //void _euroChanged(String text) {
-    VoidCallback? _euroChanged(String text){
+  VoidCallback? _euroChanged(String text) {
     double euro = double.parse(text);
     realController.text = (euro * this.euro).toStringAsFixed(2);
     dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
+    return null; //! ACRESCENTADO PARA REMOVER ERROS */
   }
 
   void clearAll() {
@@ -163,7 +166,7 @@ VoidCallback? _dolarChanged(String text) {
 
                 //? Passo 5.8:
                 //*class _MyHomePageState extends State<Home> {
-                //* código anterior
+                //* código anterior  123
                 default:
                   if (snapshot.hasError) {
                     //A opção default do switch-case verifica se não teve erro

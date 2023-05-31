@@ -83,19 +83,3 @@ class Login extends StatelessWidget {
   }
 }
 
-/* Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formCalc.currentState!.validate()) {
-                        _calcTotal();
-                      }
-                      Navigator.of(context)
-                          .pushNamed('/tela2'); 
-                    },
-                    child: const Text('Calcular com 10%'),
-                  ),
-                ), 
-                
-                
-*/
