@@ -19,8 +19,8 @@ class Cotacao2 extends StatelessWidget {
       theme: ThemeData(
         hintColor: Colors.red,
         //primaryColor: Colors.white,
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 255, 37, 37)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 255, 37, 37)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Conversor de Moedas'),

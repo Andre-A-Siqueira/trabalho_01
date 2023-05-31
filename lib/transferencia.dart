@@ -21,7 +21,7 @@ import 'package:share_plus/share_plus.dart';
 
 class Transferencia extends StatefulWidget {
   const Transferencia({super.key});
-  
+
   @override
   TransferPageState createState() => TransferPageState();
 }
@@ -50,6 +50,7 @@ class TransferPageState extends State<Transferencia> {
           scrollDirection: Axis.vertical,
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            //! Campo Numero COnta */
             TextField(
               controller: accountController,
               decoration: const InputDecoration(
@@ -57,6 +58,8 @@ class TransferPageState extends State<Transferencia> {
               ),
             ),
             const SizedBox(height: 16.0),
+
+            //! Campo Quantidade */
             TextField(
               controller: amountController,
               decoration: const InputDecoration(
@@ -65,7 +68,7 @@ class TransferPageState extends State<Transferencia> {
             ),
             const SizedBox(height: 32.0),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () {  //! Quando Pressionado faÇa ... */
                 String accountNumber = accountController.text;
                 String amount = amountController.text;
 
@@ -81,9 +84,11 @@ class TransferPageState extends State<Transferencia> {
             if (_isTransferConfirmed)
               Column(
                 children: [
+
+                  //! Box de confirma;ão de transferencia */
                   Container(
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(
+                      color: const Color.fromARGB( 
                           255, 204, 111, 109), //? Cor da BOX
                       borderRadius: BorderRadius.circular(8.0),
                     ),
@@ -100,7 +105,7 @@ class TransferPageState extends State<Transferencia> {
                         ),
                         const SizedBox(height: 16.0),
                         Text(
-                          'Quantidade: R\$${amountController.text}',
+                          'Quantidade: R\$${amountController.text}',  //! Texto de transferencia */
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18.0,
