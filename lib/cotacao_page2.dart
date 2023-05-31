@@ -15,6 +15,7 @@ class Cotacao2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false, // Remove o icone de debug
       theme: ThemeData(
         hintColor: Colors.red,
         //primaryColor: Colors.white,
@@ -166,7 +167,8 @@ class _MyHomePageState extends State<MyHomePage> {
           labelStyle: const TextStyle(color: Color.fromARGB(255, 184, 15, 15)),
           border: const OutlineInputBorder(),
           prefixText: prefix),
-      style: const TextStyle(color: Color.fromARGB(255, 198, 25, 25), fontSize: 25.0),
+      style: const TextStyle(
+          color: Color.fromARGB(255, 198, 25, 25), fontSize: 25.0),
       onChanged: (value) => {f!(value)},
       keyboardType: const TextInputType.numberWithOptions(decimal: true),
     );
