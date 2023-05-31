@@ -62,7 +62,10 @@ Future<Map> getData() async {
 //?Passo 4:
 //? Criação da tela com estado dinâmico
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  //const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -87,8 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //? Passo 5.3:
   //?Método que calcula o valor de dólar e euro, dado o valor em real.
-  //!VoidCallback? _realChanged(String text) {
-  void _realChanged(String text) {
+  VoidCallback? _realChanged(String text) {
+  //void _realChanged(String text) {
     double real = double.parse(text);
 
     dolarController.text = (real / dolar).toStringAsFixed(2);
@@ -99,8 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
 //? Método que calcula o valor de real e euro, dado o valor em dólar
 
 // código anterior
-//!VoidCallback? _dolarChanged(String text) {
-  void _dolarChanged(String text) {
+VoidCallback? _dolarChanged(String text) {
+  //void _dolarChanged(String text) {
     double dolar = double.parse(text);
     realController.text = (dolar * this.dolar).toStringAsFixed(2);
     euroController.text = (dolar * this.dolar / euro).toStringAsFixed(2);
@@ -110,8 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
   //?Método que calcula o valor de dólar e real, dado o valor em euro
   //*class _MyHomePageState extends State<Home> {
   //* código anterior
-  void _euroChanged(String text) {
-    //!VoidCallback? _euroChanged(String text){
+  //void _euroChanged(String text) {
+    VoidCallback? _euroChanged(String text){
     double euro = double.parse(text);
     realController.text = (euro * this.euro).toStringAsFixed(2);
     dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);

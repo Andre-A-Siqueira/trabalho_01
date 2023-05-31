@@ -33,7 +33,10 @@ class Login extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: TextFormField(
                 keyboardType: TextInputType.number,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                inputFormatters: [
+                  FilteringTextInputFormatter
+                      .singleLineFormatter /* TIpo de entrada Texto */
+                ],
                 decoration:
                     const InputDecoration(hintText: 'Digite seu email.'),
                 validator: (value) {
@@ -52,6 +55,7 @@ class Login extends StatelessWidget {
             child: TextFormField(
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                /* TIpo de entrada numero */
                 decoration:
                     const InputDecoration(hintText: 'Digite a sua senha.'),
                 validator: (value) {

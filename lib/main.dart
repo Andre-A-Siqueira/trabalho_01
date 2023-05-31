@@ -23,8 +23,8 @@ class MeuPrimeiroAplicativo extends StatelessWidget {
         title: 'Aplicativo de Cálculo',
         debugShowCheckedModeBanner: false, // Remove o icone de debug
         theme: ThemeData(
-          hintColor: Colors.green,
-          primaryColor: Colors.white,
+          hintColor: const Color.fromARGB(255, 192, 143, 74),
+          primaryColor: const Color.fromARGB(255, 255, 255, 255),
           primarySwatch: Colors.red, //? Cor tema do aplicativo  */
         ),
         //home: const TelaConta() DEVE SER REMOVIDO PARA ROTAS, //Chama classe dinâmica criada
