@@ -3,18 +3,13 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-/* void main() async {
-  //Alterar para método assíncrono
-  runApp(const Cotacao2());
-} */
-
 class Cotacao2 extends StatelessWidget {
   const Cotacao2({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Conversor_de_moedas',
       debugShowCheckedModeBanner: false, // Remove o icone de debug
       theme: ThemeData(
         hintColor: Colors.red,

@@ -106,6 +106,8 @@ class _CalcContaEstado extends State<TelaConta> {
                 ),
 
                 //! Botão. */
+                //! "pushNamed" cria o botão de voltar  */
+                //! "pushReplacementNamed" substitui a página  */
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: ElevatedButton(
